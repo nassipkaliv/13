@@ -2046,6 +2046,7 @@ html.vn .button span {
     height: 90px;
 		bottom: 120px;
 	}
+	
 }
 
 @media (max-width: 400px) {
@@ -2299,6 +2300,10 @@ html.vn .button span {
 
 			.btns .button {
 				margin-bottom: 2rem;
+			}
+
+			body {
+				overflow-y: hidden;
 			}
 
 }
