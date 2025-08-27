@@ -2044,7 +2044,8 @@ html.vn .button span {
   .lane {
     width: 90px;
     height: 90px;
-  }
+		bottom: 120px;
+	}
 }
 
 @media (max-width: 400px) {
@@ -2156,7 +2157,7 @@ html.vn .button span {
 	}
 
   .balance_container  {
-    top: -33.5%;
+    top: -40.5%;
   }
 
   .balance-text span {
@@ -2284,7 +2285,7 @@ html.vn .button span {
 @media (max-width: 540px) {
     .game-container {
         width: 500px;
-				height: 44rem;
+				height: 40rem;
 			}
 
 		.lang_switcher_outer {
