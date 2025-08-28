@@ -1452,8 +1452,6 @@ html.vn .button span {
 }
 
 .button:hover {
-	-webkit-box-shadow: 0 0 1.6rem #fff;
-	box-shadow: 0 0 1.6rem #fff;
 	background: #ff8a14
 }
 
@@ -2036,7 +2034,8 @@ html.vn .button span {
 
 @media (max-width: 600px) {
   .game-container {
-    height: 60vh;        /* чуть выше, чтобы курица и фишки влезли */
+    height: 60vh; 
+		border: 5px solid transparent;       /* чуть выше, чтобы курица и фишки влезли */
   }
   .chicken {
     width: 80px;         /* уменьшаем курицу */
@@ -2044,7 +2043,7 @@ html.vn .button span {
   .lane {
     width: 90px;
     height: 90px;
-		bottom: 120px;
+		bottom: 140px;
 	}
 	
 }
@@ -2295,7 +2294,7 @@ html.vn .button span {
 			}
 
 			#animation_container {
-				margin-bottom: 11.5rem;
+				margin-bottom: 8rem;
 			}
 
 			.btns .button {
