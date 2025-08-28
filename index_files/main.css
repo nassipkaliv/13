@@ -2289,7 +2289,7 @@ html.vn .button span {
 @media (max-width: 540px) {
     .game-container {
         width: 500px;
-				height: 38.5rem;
+				height: 36rem;
 			}
 
 		.lang_switcher_outer {
@@ -2298,11 +2298,11 @@ html.vn .button span {
 			}
 
 			#animation_container {
-				margin-bottom: 8rem;
+				margin-bottom: 7rem;
 			}
 
 			.btns .button {
-				margin-bottom: 2rem;
+				margin-bottom: 1rem;
 			}
 
 			body {
