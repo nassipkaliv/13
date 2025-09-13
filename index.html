@@ -554,7 +554,7 @@
   <script src="./index_files/index.js"></script>
 
 
-  <script>
+<script>
 /* ===== DOM ===== */
 const goBtn       = document.getElementById('go-btn');
 const cashBtn     = document.getElementById('cash-btn');
@@ -566,12 +566,7 @@ const chicken     = document.querySelector('.chicken');
 const lanes       = [...document.querySelectorAll('.lane')]; // включая .gold-egg
 const spawnEl     = document.querySelector('.spawn');
 
-/* Sparkles overlay (должен быть в .game-container):
-<div id="sparkles" class="sparkles">
-  <div class="sparkles-layer fast"></div>
-  <div class="sparkles-layer slow"></div>
-</div>
-*/
+/* Sparkles overlay (должен быть в .game-container) */
 const sparklesEl  = document.getElementById('sparkles');
 const sparkleLayers = sparklesEl ? [...sparklesEl.querySelectorAll('.sparkles-layer')] : [];
 
@@ -653,41 +648,34 @@ function playSparklesOnce(){
   if (!sparklesEl || sparklesPlayed) return;
   sparklesPlayed = true;
 
-  // Перезапуск анимации дорожек на всех браузерах
   sparkleLayers.forEach(layer => {
     layer.style.animation = 'none';
-    void layer.offsetWidth;           // рефлоу
-    layer.style.animation = '';       // вернуть CSS-анимации
-    // На всякий случай пробуждаем:
+    void layer.offsetWidth;
+    layer.style.animation = '';
     layer.style.animationPlayState = 'running';
   });
 
-  // Показать оверлей
   sparklesEl.classList.add('active');
   sparklesEl.style.opacity = '1';
 
-  // Автовыключение
   setTimeout(() => {
     sparklesEl.classList.remove('active');
     sparklesEl.style.opacity = '';
   }, 3500);
 }
 
-/* ===== POPUP: надёжное открытие/закрытие без CSS-зависимостей ===== */
 /* ===== POPUP: надёжное открытие/закрытие ===== */
 function openPopup(){
   if (!popup || popupShown) return;
   popupShown = true;
 
-  // Сам попап (фон)
   popup.style.display = 'block';
   popup.style.visibility = 'visible';
   popup.style.opacity = '1';
   popup.removeAttribute('aria-hidden');
 
-  // Само окно (popup__window)
   if (popupWin) {
-    popupWin.style.display = 'block';       // <--- вот это важно
+    popupWin.style.display = 'block';
     popupWin.style.transform = 'scale(0.92)';
     popupWin.style.opacity = '0';
 
@@ -704,6 +692,10 @@ function openPopup(){
 function closePopup(){
   if (!popup) return;
   popupShown = false;
+
+  // убираем «празднование» при закрытии
+  chicken.classList.remove('celebrate');
+
   if (popupWin) {
     popupWin.style.transform = 'scale(0.92)';
     popupWin.style.opacity = '0';
@@ -714,7 +706,7 @@ function closePopup(){
     popup.style.display = 'none';
     popup.setAttribute('aria-hidden', 'true');
     if (popupWin) {
-      popupWin.style.display = 'none';   // <--- прячем обратно
+      popupWin.style.display = 'none';
       popupWin.style.transition = '';
       popupWin.style.transform = '';
     }
@@ -769,17 +761,22 @@ goBtn.addEventListener('click', () => {
   balanceValue = next;
   animateBalance(from, next, 450);
 
-  // 5) финал: золотое яйцо ⇒ блёстки + попап
+  // 5) финал: золотое яйцо или последний шаг ⇒ celebrate + блёстки + попап через 1000 ms
   const isLastStep = (step === lanes.length - 1);
   if (isLastStep || targetLane.classList.contains('gold-egg')) {
+    // перезапуск класса celebrate для надёжного старта анимации
+    chicken.classList.remove('celebrate');
+    void chicken.offsetWidth;           // reflow
+    chicken.classList.add('celebrate');
+
     playSparklesOnce();
-    // даём завершиться прыжку/флипу для красивого тайминга
-    setTimeout(openPopup, 400);
+    setTimeout(openPopup, 1000);        // <<< задержка 1000ms
   }
 
   step++;
 });
 </script>
+
 
 
 

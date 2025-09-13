@@ -1228,7 +1228,8 @@ html.vn .button span {
 
 #animation_container {
 	position: relative;
-	display: block;
+	display: flex;
+	justify-content: center;
 	width: 120rem !important;
 	height: 60rem !important;
 	margin: 3rem auto;
@@ -1971,7 +1972,7 @@ html.vn .button span {
   width: 140px; height: 140px;
   transform: translateX(-50%); /* значит left — это центр */
 }
-.gold-egg{ bottom:120px; }
+.gold-egg{ bottom:200px; }
 
 /* Картинки фишек + анимация флипа */
 .lane img{
@@ -1993,7 +1994,7 @@ html.vn .button span {
 }
 .chicken{
   position: absolute;
-  bottom: 28px;
+  bottom: 21px;
   left: 0;
   width: 120px; height: auto;
   transition: left .45s ease;
@@ -2006,6 +2007,16 @@ html.vn .button span {
   100%{ transform: translateY(0); }
 }
 .chicken.hop{ animation: chickenHop .35s ease-out; }
+
+@keyframes chickenCelebrate {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-18px); }
+}
+
+.chicken.celebrate {
+  animation: chickenCelebrate 0.3s ease-in-out infinite;
+}
+
 
 
 @-webkit-keyframes popup-img-scaling {
@@ -2038,7 +2049,8 @@ html.vn .button span {
 		border: 5px solid transparent;       /* чуть выше, чтобы курица и фишки влезли */
   }
   .chicken {
-    width: 80px;         /* уменьшаем курицу */
+    width: 80px;    
+		bottom: 11px; 
   }
   .lane {
     width: 90px;
@@ -2046,9 +2058,6 @@ html.vn .button span {
 		bottom: 140px;
 	}
 
-	.gold-egg {
-		bottom: 90px;
-	}
 	
 }
 
