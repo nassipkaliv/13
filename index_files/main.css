@@ -2028,7 +2028,7 @@ html.vn .button span {
   40%{  transform: translateY(-52px); }
   100%{ transform: translateY(0); }
 }
-.chicken.hop{ animation: chickenHop .45s ease-out; }
+.chicken.hop{ animation: chickenHop .65s ease-out; }
 
 @keyframes chickenCelebrate {
   0%, 100% { transform: translateY(0); }
