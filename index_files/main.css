@@ -1980,25 +1980,18 @@ html.vn .button span {
 }
 
 .lane.gold-egg::before {
-  content: "";
-  position: absolute;
-  bottom: -120px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 250px;   
-  height: 220px; 
-  background: linear-gradient(
-    to top,
-    rgba(255, 215, 0, 0.1) 0%,  
-    rgba(255, 215, 0, 0.35) 40%, 
-    rgba(255, 215, 0, 0.1) 100%    
-  );
-  
-  clip-path: polygon(20% 0%, 80% 0%, 65% 100%, 35% 100%);
-  
-  filter: blur(10px);
-  z-index: 1;
-  pointer-events: none;
+	content: "";
+	position: absolute;
+	bottom: -160px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 250px;
+	height: 220px;
+	background: linear-gradient(to top, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.35) 60%, rgba(255, 215, 0, 0.1) 100%);
+	clip-path: polygon(21% 0%, 79% 0%, 67% 100%, 34% 100%);
+	filter: blur(10px);
+	z-index: 1;
+	pointer-events: none;
 }
 
 
@@ -2138,26 +2131,24 @@ html.vn .button span {
 		font-size: 1.8181818182vw
 	}
 
+	.gold-egg {
+		width: 120px;
+		bottom: 155px;
+	}
+
 	.lane.gold-egg::before {
-  content: "";
-  position: absolute;
-  bottom: -113px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 250px;   
-  height: 190px; 
-  background: linear-gradient(
-    to top,
-    rgba(255, 215, 0, 0.1) 0%,  
-    rgba(255, 215, 0, 0.35) 40%, 
-    rgba(255, 215, 0, 0.1) 100%    
-  );
-  
-  clip-path: polygon(20% 0%, 80% 0%, 65% 100%, 35% 100%);
-  
-  filter: blur(10px);
-  z-index: 1;
-  pointer-events: none;
+		content: "";
+    position: absolute;
+    bottom: -137px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 150px;
+    background: linear-gradient(to top, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.35) 60%, rgba(255, 215, 0, 0.1) 100%);
+    clip-path: polygon(26% 0%, 75% 0%, 67% 100%, 33% 100%);
+    filter: blur(10px);
+    z-index: 1;
+    pointer-events: none;
 }
 
 	#animation_container {
