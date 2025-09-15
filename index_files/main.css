@@ -2141,7 +2141,7 @@ html.vn .button span {
 	.lane.gold-egg::before {
   content: "";
   position: absolute;
-  bottom: -120px;
+  bottom: -113px;
   left: 50%;
   transform: translateX(-50%);
   width: 250px;   
