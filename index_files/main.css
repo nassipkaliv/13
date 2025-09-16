@@ -2095,6 +2095,7 @@ html.vn .button span {
     width: 70px;
     height: 70px;
   }
+
 }
 
 @media(max-width: 1040px) {
@@ -2366,6 +2367,10 @@ html.vn .button span {
 		.lane {
 			bottom: 120px;
 		}
+
+		.gold-egg {
+			bottom: 155px;
+		}	
 }
 
 .game {
