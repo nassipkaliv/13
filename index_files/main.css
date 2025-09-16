@@ -1924,22 +1924,25 @@ html.vn .button span {
 }
 
 /* Окно игры */
-.game-container{
+.game-container {
   position: relative;
   width: 100%;
-	max-width: 900px;
+  max-width: 900px;
   height: 100%;
   overflow: hidden;
-  background-color: #0f1324;
   isolation: isolate;
-	border-radius: 65px;
-	border: 9px solid transparent;
-  background: linear-gradient(#0f1324, #0f1324) padding-box, linear-gradient(180deg, #03AD15 0%, #00FF1A 49%, #017E0E 100%) border-box;
-	background-color: #0f1324;
-  background-repeat: repeat-x;
-  background-position: center;
-  background-size: cover;
+  border-radius: 65px;
+
+  border: 9px solid transparent;
+
+  background:
+    /* слой внутри контейнера (фон + картинка) */
+    linear-gradient(#0f1324, #0f1324) padding-box,
+    url("../pics/background.png") center/cover repeat-x padding-box,
+    /* слой для градиентной рамки */
+    linear-gradient(180deg, #03AD15 0%, #00FF1A 49%, #017E0E 100%) border-box;
 }
+
 
 /* Трек (фон + фишки) */
 .track{
