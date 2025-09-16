@@ -1950,7 +1950,7 @@ html.vn .button span {
   z-index: 1;
   will-change: transform;
   pointer-events: none;
-  transition: transform .45s ease; /* плавность шага трека */
+  transition: transform .35s ease; /* плавность шага трека */
 }
 
 /* Спавн — только X координата */
@@ -2019,7 +2019,7 @@ html.vn .button span {
   bottom: 21px;
   left: 0;
   width: 120px; height: auto;
-  transition: left .45s ease;
+  transition: left .35s ease;
 }
 
 /* Прыжок курицы */
