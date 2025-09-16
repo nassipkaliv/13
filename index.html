@@ -580,24 +580,28 @@ let popupShown = false;
 /* ===== HELPERS ===== */
 function centerXInTrack(el){
   if (el.classList.contains('lane') || el.classList.contains('spawn')) {
-    return parseInt(el.style.left || '0', 10) || 0;  // из-за translateX(-50%) это центр
+    return parseInt(el.style.left || '0', 10) || 0; 
   }
   const r  = el.getBoundingClientRect();
   const rt = track.getBoundingClientRect();
   return r.left + r.width/2 - rt.left;
 }
+
 function clampTrackX(x){
   const maxTravel = track.offsetWidth - container.clientWidth;
   return Math.max(-maxTravel, Math.min(0, x));
 }
+
 function placeChickenAtScreenX(x){
   chicken.style.left = (x - chickenHalf) + 'px';
 }
+
 function hop(){
   chicken.classList.remove('hop');
   void chicken.offsetWidth;
   chicken.classList.add('hop');
 }
+
 function flipToCoin(laneEl){
   if (laneEl.classList.contains('gold-egg')) return;
   if (laneEl.classList.contains('flipped'))  return;
@@ -751,14 +755,14 @@ goBtn.addEventListener('click', () => {
 
   // 5) финал: золотое яйцо или последний шаг ⇒ celebrate + блёстки + попап через 1000 ms
   const isLastStep = (step === lanes.length - 1);
+  
   if (isLastStep || targetLane.classList.contains('gold-egg')) {
-    // перезапуск класса celebrate для надёжного старта анимации
     chicken.classList.remove('celebrate');
-    void chicken.offsetWidth;           // reflow
+    void chicken.offsetWidth;  // reflow
     chicken.classList.add('celebrate');
-
+    
     playSparklesOnce();
-    setTimeout(openPopup, 1000);        // <<< задержка 1000ms
+    setTimeout(openPopup, 1200); // чуть дольше, чтобы успел прыгнуть
   }
 
   step++;
