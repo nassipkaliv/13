@@ -755,14 +755,14 @@ goBtn.addEventListener('click', () => {
 
   // 5) финал: золотое яйцо или последний шаг ⇒ celebrate + блёстки + попап через 1000 ms
   const isLastStep = (step === lanes.length - 1);
-  
   if (isLastStep || targetLane.classList.contains('gold-egg')) {
+    // перезапуск класса celebrate для надёжного старта анимации
     chicken.classList.remove('celebrate');
-    void chicken.offsetWidth;  // reflow
+    void chicken.offsetWidth;           // reflow
     chicken.classList.add('celebrate');
-    
+
     playSparklesOnce();
-    setTimeout(openPopup, 1200); // чуть дольше, чтобы успел прыгнуть
+    setTimeout(openPopup, 1000);        // <<< задержка 1000ms
   }
 
   step++;
