@@ -605,15 +605,19 @@ function hop(isFinal=false){
   }
 }
 
-/* Когда курица допрыгнула в финале */
+
 function onFinalHopEnd(){
-  // 1) запускаем блёстки
+  
+  chicken.classList.add('celebrate');
+
+
   playSparklesOnce();
+
 
   // 2) задержка перед popup, чтобы блёстки начали играть
   setTimeout(() => {
     openPopup();
-  }, 1200);
+  }, 800);
 }
 
 /* Флип в монетку */
