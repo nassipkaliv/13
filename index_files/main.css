@@ -1930,7 +1930,7 @@ html.vn .button span {
 	max-width: 900px;
   height: 100%;
   overflow: hidden;
-  background: #0f1324;
+  background-color: #0f1324;
   isolation: isolate;
 	border-radius: 65px;
 	border: 9px solid transparent;
