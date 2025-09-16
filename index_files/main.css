@@ -1953,6 +1953,12 @@ html.vn .button span {
   transition: transform .35s ease; /* плавность шага трека */
 }
 
+.track {
+  transform: translateX(0) translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
 /* Спавн — только X координата */
 .spawn{
   position: absolute;
