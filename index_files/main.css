@@ -1950,7 +1950,7 @@ html.vn .button span {
   z-index: 1;
   will-change: transform;
   pointer-events: none;
-  transition: transform .65s ease; /* плавность шага трека */
+  transition: transform .45s ease; /* плавность шага трека */
 }
 
 /* Спавн — только X координата */
@@ -2028,7 +2028,8 @@ html.vn .button span {
   40%{  transform: translateY(-52px); }
   100%{ transform: translateY(0); }
 }
-.chicken.hop{ animation: chickenHop .6s ease-out; }
+.chicken.hop{ animation: chickenHop .35s ease-out; }
+
 
 @keyframes chickenCelebrate {
   0%, 100% { transform: translateY(0); }
@@ -2038,15 +2039,6 @@ html.vn .button span {
 .chicken.celebrate {
   animation: chickenCelebrate 0.35s ease-in-out infinite;
 }
-
-.track {
-  transition: transform 0.6s ease-in-out;
-}
-
-.chicken {
-  transition: left 0.6s ease-in-out;
-}
-
 
 
 @-webkit-keyframes popup-img-scaling {

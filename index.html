@@ -542,8 +542,8 @@
   <script src="./index_files/index.js"></script>
 
 
-    <script>
-      /* ===== DOM ===== */
+<script>
+/* ===== DOM ===== */
 const goBtn       = document.getElementById('go-btn');
 const cashBtn     = document.getElementById('cash-btn');
 const balanceEl   = document.getElementById('balance');
@@ -554,16 +554,16 @@ const chicken     = document.querySelector('.chicken');
 const lanes       = [...document.querySelectorAll('.lane')]; // включая .gold-egg
 const spawnEl     = document.querySelector('.spawn');
 
-/* Sparkles overlay (должен быть в .game-container) */
+/* Sparkles overlay */
 const sparklesEl  = document.getElementById('sparkles');
 const sparkleLayers = sparklesEl ? [...sparklesEl.querySelectorAll('.sparkles-layer')] : [];
 
 /* Popup */
-const popup       = document.getElementById('popup');           // .popup
-const popupWin    = document.getElementById('popup__window_1'); // окно внутри
+const popup       = document.getElementById('popup');
+const popupWin    = document.getElementById('popup__window_1');
 
 /* ===== STATE ===== */
-let step = 0;                 // 0..lanes.length-1 (последний — золотое яйцо)
+let step = 0;                 
 let trackX = 0;
 const chickenHalf = 60;
 const MULTS = [1.50, 1.85, 1.95, 2.00, 2.10, 2.20];
@@ -580,23 +580,21 @@ let popupShown = false;
 /* ===== HELPERS ===== */
 function centerXInTrack(el){
   if (el.classList.contains('lane') || el.classList.contains('spawn')) {
-    return parseInt(el.style.left || '0', 10) || 0; 
+    return parseInt(el.style.left || '0', 10) || 0;  
   }
   const r  = el.getBoundingClientRect();
   const rt = track.getBoundingClientRect();
   return r.left + r.width/2 - rt.left;
 }
-
 function clampTrackX(x){
   const maxTravel = track.offsetWidth - container.clientWidth;
   return Math.max(-maxTravel, Math.min(0, x));
 }
-
 function placeChickenAtScreenX(x){
   chicken.style.left = (x - chickenHalf) + 'px';
 }
 
-/* прыжок: можно вызвать с флагом isFinal */
+/* Прыжок курицы */
 function hop(isFinal=false){
   chicken.classList.remove('hop');
   void chicken.offsetWidth;
@@ -607,22 +605,18 @@ function hop(isFinal=false){
   }
 }
 
-/* финал прыжка */
-/* финал прыжка */
+/* Когда курица допрыгнула в финале */
 function onFinalHopEnd(){
-  chicken.classList.remove('celebrate');
-  void chicken.offsetWidth;
-  chicken.classList.add('celebrate');
-
- 
+  // 1) запускаем блёстки
   playSparklesOnce();
 
+  // 2) задержка перед popup, чтобы блёстки начали играть
   setTimeout(() => {
     openPopup();
-  }, 1200); 
+  }, 1200);
 }
 
-
+/* Флип в монетку */
 function flipToCoin(laneEl){
   if (laneEl.classList.contains('gold-egg')) return;
   if (laneEl.classList.contains('flipped'))  return;
@@ -638,6 +632,7 @@ function flipToCoin(laneEl){
   }, 200);
 }
 
+/* Анимация баланса */
 function animateBalance(from, to, ms = 450){
   const start = performance.now();
   function frame(t){
@@ -649,6 +644,7 @@ function animateBalance(from, to, ms = 450){
   requestAnimationFrame(frame);
 }
 
+/* Точное умножение */
 function preciseMul(a, b){
   const aStr = String(a), bStr = String(b);
   const aDec = (aStr.split('.')[1] || '').length;
@@ -658,7 +654,7 @@ function preciseMul(a, b){
   return (fA * fB) / Math.pow(10, aDec + bDec);
 }
 
-/* ===== SPARKLES: надёжный запуск ===== */
+/* ===== SPARKLES ===== */
 function playSparklesOnce(){
   if (!sparklesEl || sparklesPlayed) return;
   sparklesPlayed = true;
@@ -679,7 +675,7 @@ function playSparklesOnce(){
   }, 3500);
 }
 
-/* ===== POPUP: надёжное открытие/закрытие ===== */
+/* ===== POPUP ===== */
 function openPopup(){
   if (!popup || popupShown) return;
   popupShown = true;
@@ -703,13 +699,9 @@ function openPopup(){
     });
   }
 }
-
 function closePopup(){
   if (!popup) return;
   popupShown = false;
-
-  chicken.classList.remove('celebrate');
-
   if (popupWin) {
     popupWin.style.transform = 'scale(0.92)';
     popupWin.style.opacity = '0';
@@ -779,11 +771,7 @@ goBtn.addEventListener('click', () => {
 
   step++;
 });
-
-    </script>
-
-
-
+</script>
 
 
 <div id="preloadjs-container" style="visibility: hidden; position: absolute; height: 10px; width: 10px; overflow: hidden; transform: translate(-10px, -10px);"></div>
