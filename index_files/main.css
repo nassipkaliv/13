@@ -1945,35 +1945,31 @@ html.vn .button span {
 
 
 /* Трек (фон + фишки) */
-.track{
+.track {
   position: absolute;
   inset: 0 auto 0 0;
   width: 1450px; /* шире контейнера */
   background-image: url("../pics/background.png");
-  background-repeat: repeat-x;
+  background-repeat: no-repeat;       /* фон один раз */
   background-position: left center;
-  background-size: 100% 100%;
-  transform: translateX(0);
+  background-size: 100% 100%;         /* фиксируем */
+  background-color: #0f1324;          /* подложка под фон */
+
+  transform: translate3d(0,0,0);      /* плавность */
+  backface-visibility: hidden;
+  will-change: transform;
+
+  transition: transform .35s ease;
   z-index: 1;
-  will-change: transform;
   pointer-events: none;
-  transition: transform .35s ease; /* плавность шага трека */
-	padding-right: 2px;
-  padding-left: 2px;
-  box-sizing: content-box;
+
+  margin-left: -1px;   /* съедаем субпиксельные щели */
+  margin-right: -1px;
+
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
-.track {
-  transform: translateX(0) translateZ(0);
-  backface-visibility: hidden;
-  will-change: transform;
-}
-
-.track {
-  transform: translate3d(0,0,0);
-  backface-visibility: hidden;
-  will-change: transform;
-}
 .chicken, .lanes {
   transform: translate3d(0,0,0);
   backface-visibility: hidden;
