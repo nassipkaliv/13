@@ -1948,12 +1948,13 @@ html.vn .button span {
 .track {
   position: absolute;
   inset: 0 auto 0 0;
-  width: 1450px; /* шире контейнера */
+  width: 1452px; /* шире контейнера */
   background-image: url("../pics/background.png");
   background-repeat: no-repeat;       /* фон один раз */
   background-position: left center;
   background-size: 100% 100%;         /* фиксируем */
   background-color: transparent;          /* подложка под фон */
+	background-clip: content-box;
 
   transform: translate3d(0,0,0);      /* плавность */
   backface-visibility: hidden;
