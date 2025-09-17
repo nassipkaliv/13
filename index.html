@@ -767,6 +767,14 @@ goBtn.addEventListener('click', () => {
     flipToCoin(targetLane);
   }, 120);
 
+  const preloadImages = [
+    "pics/gold-coin.png"
+  ];
+  preloadImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+
   // 4) баланс
   const mult = MULTS[step] || 1;
   const from = balanceValue;
