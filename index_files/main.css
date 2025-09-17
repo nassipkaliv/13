@@ -1953,7 +1953,7 @@ html.vn .button span {
   background-repeat: no-repeat;       /* фон один раз */
   background-position: left center;
   background-size: 100% 100%;         /* фиксируем */
-  background-color: #0f1324;          /* подложка под фон */
+  background-color: transparent;          /* подложка под фон */
 
   transform: translate3d(0,0,0);      /* плавность */
   backface-visibility: hidden;
