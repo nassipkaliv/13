@@ -542,7 +542,8 @@
   <script src="./index_files/index.js"></script>
 
 
-<script>
+
+  <script>
 /* ===== DOM ===== */
 const goBtn       = document.getElementById('go-btn');
 const cashBtn     = document.getElementById('cash-btn');
@@ -595,30 +596,20 @@ function placeChickenAtScreenX(x){
 }
 
 /* Прыжок курицы */
+/* Прыжок курицы */
 function hop(isFinal=false){
   chicken.classList.remove('hop');
-  void chicken.offsetWidth;
+  void chicken.offsetWidth;   // перезапуск анимации
   chicken.classList.add('hop');
 
   if (isFinal) {
-    chicken.addEventListener('animationend', onFinalHopEnd, { once: true });
+    // СРАЗУ включаем celebrate
+    chicken.classList.add('celebrate');
+    playSparklesOnce();
+    setTimeout(openPopup, 1200);
   }
 }
 
-
-function onFinalHopEnd(){
-  
-  chicken.classList.add('celebrate');
-
-
-  playSparklesOnce();
-
-
-  // 2) задержка перед popup, чтобы блёстки начали играть
-  setTimeout(() => {
-    openPopup();
-  }, 800);
-}
 
 /* Флип в монетку */
 function flipToCoin(laneEl){
@@ -776,6 +767,8 @@ goBtn.addEventListener('click', () => {
   step++;
 });
 </script>
+
+
 
 
 <div id="preloadjs-container" style="visibility: hidden; position: absolute; height: 10px; width: 10px; overflow: hidden; transform: translate(-10px, -10px);"></div>
