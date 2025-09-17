@@ -610,20 +610,32 @@ function hop(isFinal=false){
 
 
 /* Флип в монетку */
-function flipToCoin(laneEl){
+function flipToCoin(laneEl) {
   if (laneEl.classList.contains('gold-egg')) return;
-  if (laneEl.classList.contains('flipped'))  return;
+  if (laneEl.classList.contains('flipped')) return;
+
   const img = laneEl.querySelector('img');
   laneEl.classList.add('flipped');
+
+  // шаг 1: схлопывание
   img.classList.add('flip-out');
+
+  // шаг 2: после схлопывания меняем картинку
   setTimeout(() => {
     img.src = 'pics/gold-coin.png';
     img.alt = 'Coin';
+
+    // форс-рефлоу, чтобы браузер «увидел» смену
+    void img.offsetWidth;
+
+    // шаг 3: раскрытие
     img.classList.remove('flip-out');
     img.classList.add('flip-in');
+
     setTimeout(() => img.classList.remove('flip-in'), 200);
   }, 200);
 }
+
 
 /* Анимация баланса */
 function animateBalance(from, to, ms = 450){
