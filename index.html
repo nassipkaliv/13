@@ -549,10 +549,10 @@ const goBtn       = document.getElementById('go-btn');
 const cashBtn     = document.getElementById('cash-btn');
 const balanceEl   = document.getElementById('balance');
 
-const container   = document.getElementById('game');   // .game-container
-const track       = document.getElementById('track');  // .track
+const container   = document.getElementById('game');  
+const track       = document.getElementById('track');  
 const chicken     = document.querySelector('.chicken');
-const lanes       = [...document.querySelectorAll('.lane')]; // включая .gold-egg
+const lanes       = [...document.querySelectorAll('.lane')];
 const spawnEl     = document.querySelector('.spawn');
 
 /* Sparkles overlay */
@@ -596,14 +596,12 @@ function placeChickenAtScreenX(x){
 }
 
 /* Прыжок курицы */
-/* Прыжок курицы */
 function hop(isFinal=false){
   chicken.classList.remove('hop');
-  void chicken.offsetWidth;   // перезапуск анимации
+  void chicken.offsetWidth;  
   chicken.classList.add('hop');
 
   if (isFinal) {
-    // СРАЗУ включаем celebrate
     chicken.classList.add('celebrate');
     playSparklesOnce();
     setTimeout(openPopup, 1200);
@@ -714,7 +712,6 @@ function closePopup(){
   }, 180);
 }
 
-/* закрытие по клику вне окна и по Esc */
 if (popup) {
   popup.addEventListener('click', (e)=>{
     if (!popupWin) return;
@@ -753,8 +750,10 @@ goBtn.addEventListener('click', () => {
   const isLastStep = (step === lanes.length - 1);
   hop(isLastStep);
 
-  // 3) флип
-  flipToCoin(targetLane);
+
+  setTimeout(() => {
+    flipToCoin(targetLane);
+  }, 120);
 
   // 4) баланс
   const mult = MULTS[step] || 1;
@@ -766,6 +765,8 @@ goBtn.addEventListener('click', () => {
 
   step++;
 });
+
+
 </script>
 
 
