@@ -1361,6 +1361,11 @@ html.is-loading body {
   flex-direction: column;
 }
 
+#go-btn:disabled { 
+  opacity: 0.5; 
+  pointer-events: none;
+}
+
 @media(max-width: 1040px) {
 	.wrapper {
 		min-height: 83rem

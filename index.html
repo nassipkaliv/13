@@ -554,8 +554,7 @@
     });
   </script>
 
-
-  <script>
+<script>
 /* ===== DOM ===== */
 const goBtn       = document.getElementById('go-btn');
 const cashBtn     = document.getElementById('cash-btn');
@@ -757,6 +756,10 @@ window.addEventListener('load', () => {
 goBtn.addEventListener('click', () => {
   if (step >= lanes.length) return;
 
+  /* === Добавлено: защита от спама кликов и визуальное "disabled" === */
+  if (goBtn.disabled) return;      // уже заблокирована — игнор
+  goBtn.disabled = true;           // станет с opacity: 0.5 (через CSS #go-btn:disabled)
+
   if (step === 0 && cashBtn) cashBtn.classList.remove('disabled');
 
   const targetLane = lanes[step];
@@ -773,7 +776,6 @@ goBtn.addEventListener('click', () => {
 
   const isLastStep = (step === lanes.length - 1);
   hop(isLastStep);
-
 
   setTimeout(() => {
     flipToCoin(targetLane);
@@ -796,10 +798,16 @@ goBtn.addEventListener('click', () => {
   animateBalance(from, next, 450);
 
   step++;
+
+  /* === Добавлено: разблокировка кнопки после анимаций (если не финал) === */
+  if (!isLastStep && !popupShown) {
+    setTimeout(() => {
+      goBtn.disabled = false; // вернётся нормальная непрозрачность
+    }, 450); // подстрой под длительность твоих анимаций
+  }
 });
-
-
 </script>
+
 
 
 
